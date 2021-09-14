@@ -4,16 +4,24 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config ./build/webpack.config.js --mode production --progress --color -w"
+    "dev": "cross-env envMode=dev webpack serve --config ./build/webpack.config.js --color",
+    "build": "cross-env envMode=prod webpack --config ./build/webpack.prod.conf.js --color",
+    "build:test": "cross-env envMode=test webpack --config ./build/webpack.test.conf.js --color"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/preset-env": "^7.15.6",
+    "babel-loader": "^8.2.2",
+    "cross-env": "^7.0.3",
     "webpack": "^5.51.1",
-    "webpack-cli": "^4.8.0"
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1"
   },
   "dependencies": {
+    "core-js": "^3.17.3",
     "dotenv": "^10.0.0"
   }
 }
